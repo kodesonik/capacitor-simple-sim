@@ -14,23 +14,40 @@
   </ion-header>
 
   <ion-card *ngFor="let sim of sims">
-  <ion-card-header>
-    <ion-card-subtitle>{{ sim.name}}</ion-card-subtitle>
-    <ion-card-title>{{ sim.displayName }}</ion-card-title>
-  </ion-card-header>    
-  <ion-card-content>
-    <ion-item lines="none">
-      <ion-label>Id</ion-label>
-      <ion-badge slot="end">{{ sim.id }}</ion-badge>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label>mnc</ion-label>
-      <ion-badge slot="end">{{ sim.mnc }}</ion-badge>
-    </ion-item> <ion-item lines="none">
-      <ion-label>mcc</ion-label>
-      <ion-badge slot="end">{{ sim.mcc }}</ion-badge>
-    </ion-item>
-  </ion-card-content>
+    <ion-card-header>
+      <ion-card-subtitle>{{ sim.name}}</ion-card-subtitle>
+      <ion-card-title>{{ sim.displayName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Id</ion-label>
+        <ion-badge slot="end">{{ sim.id }}</ion-badge>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>mnc</ion-label>
+        <ion-badge slot="end">{{ sim.mnc }}</ion-badge>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>mcc</ion-label>
+        <ion-badge slot="end">{{ sim.mcc }}</ion-badge>
+      </ion-item>
+    </ion-card-content>
   </ion-card>
- 
+  <ion-list>
+    <!-- <ion-item>
+      <ion-label position="floating">Sim</ion-label>
+      <ion-select [(ngModel)]="simIndex" placeholder="Select Sim">
+        <ion-select-option *ngFor="let sim of sims" [value]="sim.id">{{ sim.displayName }}</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="call()" expand="block" fill="clear" shape="round">
+      make Request
+    </ion-button>
+  </ion-list>
+
 </ion-content>

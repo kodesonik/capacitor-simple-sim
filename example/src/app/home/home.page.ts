@@ -9,6 +9,9 @@ import { SimpleSim } from 'capacitor-simple-sim'
 export class HomePage {
 
   sims: { id: number; name: string; displayName:string; mnc: number; mcc: number }[];
+  simIndex: number = null;
+  phoneNumber: string;
+
   constructor() {
     this.getSims();
   }
@@ -18,4 +21,7 @@ export class HomePage {
     console.log(this.sims);
   }
 
+  async call() {
+    return SimpleSim.callNumber({ simIndex: this.simIndex, phoneNumber: this.phoneNumber })
+  }
 }
