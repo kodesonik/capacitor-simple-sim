@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Simple sim
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Simple sim</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let sim of sims">
+  <ion-card-header>
+    <ion-card-subtitle>{{ sim.name}}</ion-card-subtitle>
+    <ion-card-title>{{ sim.displayName }}</ion-card-title>
+  </ion-card-header>    
+  <ion-card-content>
+    <ion-item lines="none">
+      <ion-label>Id</ion-label>
+      <ion-badge slot="end">{{ sim.id }}</ion-badge>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>mnc</ion-label>
+      <ion-badge slot="end">{{ sim.mnc }}</ion-badge>
+    </ion-item> <ion-item lines="none">
+      <ion-label>mcc</ion-label>
+      <ion-badge slot="end">{{ sim.mcc }}</ion-badge>
+    </ion-item>
+  </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

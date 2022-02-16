@@ -1,3 +1,3 @@
 export interface SimpleSimPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  getSims(): Promise<{ result: {id: number, name: string, displayName: string, mnc: number, mcc: number }[] }>;
 }
